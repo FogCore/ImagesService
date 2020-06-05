@@ -1,0 +1,6 @@
+.DS_Store
+.idea/
+__pycache__/
+DockerRegistry/package-lock.json
+DockerRegistry/node_modules
+

@@ -1,0 +1,55 @@
+version: 0.1
+
+log:
+  accesslog:
+    disabled: false
+  level: info
+  formatter: text
+  fields:
+    service: registry
+    environment: staging
+
+storage:
+  cache:
+    blobdescriptor: inmemory
+  filesystem:
+    rootdirectory: /var/lib/registry
+  delete:
+    enabled: true
+
+http:
+  addr: 0.0.0.0:5000
+  net: tcp
+  headers:
+    X-Content-Type-Options: [nosniff]
+
+health:
+  storagedriver:
+    enabled: true
+    interval: 10s
+    threshold: 3
+
+notifications:
+  events:
+    includereferences: false
+  endpoints:
+    - name: ImagesService
+      disabled: false
+      url: http://192.168.1.3:5002/event
+      timeout: 500ms
+      threshold: 5
+      backoff: 1s
+      ignoredmediatypes:
+        - application/octet-stream
+      ignore:
+        mediatypes:
+          - application/octet-stream
+        actions:
+          - pull
+
+auth:
+  token:
+    realm: http://192.168.1.3:5002/auth
+    service: "registry.docker.com"
+    issuer: "auth.docker.com"
+    rootcertbundle: /mnt/local/certs/token.crt

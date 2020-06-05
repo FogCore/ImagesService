@@ -1,0 +1,12 @@
+**/*.proto
+**/.DS_Store
+**/.idea
+**/__pycache__
+**/README.md
+/Dockerfile
+/.dockerignore
+/.git
+/.gitignore
+/images_service_dev_config.py
+/MongoDB
+/DockerRegistry

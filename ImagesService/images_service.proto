@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+// Methods that Images Service provides
+service ImagesAPI {
+  rpc List (User) returns (ResponseWithImagesList) {}  // Returns the list of fog application images
+  rpc Find (Image) returns (ResponseWithImage) {}  // Returns information about specified image of fog application
+  rpc Delete (Image) returns (Response) {}  // Removes the image of fog application
+}
+
+message User {
+  string username = 1;
+  string password = 2;
+  string first_name = 3;
+  string last_name = 4;
+  bool admin = 5;
+}
+
+message Image {
+  string type = 1;
+  string name = 2;
+  int64 updated = 3;
+  repeated string tags = 4;
+  repeated string actions = 5;
+}
+
+message Images {
+  string username = 1;
+  repeated Image list = 2;
+}
+
+message Response {
+  int32 code = 1;
+  string message = 2;
+}
+
+message ResponseWithImage {
+  Response status = 1;
+  Image image = 2;
+}
+
+message ResponseWithImagesList {
+  Response status = 1;
+  repeated Images images = 2;
+}
+
+
+// The Users Service methods that Images Service uses
+service UsersAPI {
+  rpc Verify (User) returns (ResponseWithUser) {}  // Verifies username and password
+}
+
+message ResponseWithUser {
+  Response status = 1;
+  User user = 2;
+}

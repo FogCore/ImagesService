@@ -1,0 +1,6 @@
+flask==1.1.1
+pyjwt==1.7.1
+cryptography==2.8
+grpcio==1.28.1
+protobuf==3.11.3
+pymongo==3.10.1
