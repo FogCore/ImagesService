@@ -45,16 +45,16 @@ Returns information about specified image of fog application.
 
 Receives a message of Image type.
 
-1. **name**. Image name in format <username>/<imagename>:<tag>. Tag parameter is optional.
+1. **name**. Image name in format &lt;username&gt;/&lt;imagename&gt;:&lt;tag&gt;. Tag parameter is optional.
 
 #### Result:
 
 Returns a message of ResponseWithImage type.
 
 1. **status**=(**code**=200, **message**="Image with the specified name was found."), **image**=(**type**=string, **name**=string, **updated**=int64, **tags**=[ string ], **actions**=[ string ])
-2. **status**=(**code**=404, **message**="The specified image does not have tag <tag>.")
+2. **status**=(**code**=404, **message**="The specified image does not have tag &lt;tag&gt;.")
 3. **status**=(**code**=404, **message**="Image with this name not found.")
-4. **status**=(**code**=422, **message**="Image name parameter is required. It should consist of a username and an image name, such as <username>/<imagename>:<tag>. Tag parameter is optional.")
+4. **status**=(**code**=422, **message**="Image name parameter is required. It should consist of a username and an image name, such as &lt;username&gt;/&lt;imagename&gt;:&lt;tag&gt;. Tag parameter is optional.")
 
 
 
@@ -66,7 +66,7 @@ Removes the image of fog application.
 
 Receives a message of Image type.
 
-1. **name**. Image name in format <username>/<imagename>.
+1. **name**. Image name in format &lt;username&gt;/&lt;imagename&gt;.
 
 #### Result:
 
