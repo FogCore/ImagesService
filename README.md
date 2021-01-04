@@ -90,3 +90,5 @@ Route to authenticate and authorize users and generate JWT tokens.
 
 Docker Registry Event Receiving Route.
 
+
+**The reported project was supported by RFBR, research project No. 18-07-01224**
